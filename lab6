@@ -1,0 +1,44 @@
+Q17-	gnuplot
+
+Q18-	sudo yum search plotting 
+
+Q19-	sudo yum info gnuplot
+
+Q20-	sudo yum install gnuplot
+
+Q21-	sudo yum remove gnuplot ## 12 Packages would be removed if yes is clicked
+
+Q22-	sudo rpm -qa
+
+Q23-	sudo yum install initscripts
+	sudo rpm -ql initscripts
+	
+Q24-	rpm -qi bash
+
+Q25-	rpm -V pam
+	## Out Put & yes the files was changed ##
+	....L....  c /etc/pam.d/fingerprint-auth
+	....L....  c /etc/pam.d/password-auth
+	....L....  c /etc/pam.d/postlogin
+	....L....  c /etc/pam.d/smartcard-auth
+	....L....  c /etc/pam.d/system-auth
+	..?......  c /etc/security/opasswd
+	..?......    /usr/sbin/unix_update
+
+Q26-	rpm -qa | grep gnome
+
+Q27-	rpm -ivh /path/to/your/package.rpm ## assuming the rpm package is on the cd and the path is to the cd directory
+
+Q28-	sudo yum search photoshop ## i found krita
+	sudo yum install krita
+	
+Q29 -	file content :
+[cdrom]
+name=CD-ROM Repository
+baseurl=file:///media/cdrom   # this path is where the cd is mounted 
+enabled=1
+gpgcheck=0
+
+Q30-	sudo yum install gimp ## the package manager will check if the package in the repo and install it
+
+	
