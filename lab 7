@@ -64,4 +64,49 @@ Q12-	su - user4
 
 Q13-	setfacl -m g:sales:rx dir1
 
+Q14-	setfacl -m g:sales:rw dir1/file1
 
+Q15-	sudo chmod g+s dir1
+
+Q16-	sudo mkdir /opt/research
+	sudo chgrp grads /opt/research
+	sudo chmod g=rwxs /opt/research
+	sudo setfacl -m d:g:profs:rw /opt/research
+	sudo setfacl -m d:g:interns:r /opt/research
+	sudo chmod o= /opt/research
+
+Q17-	sudo setenforce 0
+	sudo sed -i 's/^SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config
+	sudo reboot
+	--------------------
+Q18-	sestatus ## to verify after rebooting
+
+Q19-	sudo sed -i 's/^SELINUX=permissive/SELINUX=enforcing/' /etc/selinux/config
+
+Q20-	sudo setenforce 1 ## or sudo setenforce enfrocing
+
+Q21-	sudo cp /etc/resolv.conf /root
+	
+Q22-	ls -Z /root/resolv.conf
+
+Q23-	sudo mv /root/resolv.conf /etc/resolv.conf
+
+Q24-	ls -Z /etc/resolv.conf
+
+Q25-	restorecon /etc/resolv.conf
+
+Q26-	ls -Z /etc/resolv.conf
+
+Q27-	Edit /etc/ssh/sshd_config and set PasswordAuthentication no
+	and then run
+	systemctl restart sshd.service ## to reload the config file
+
+Q28-	ssh-keygen -t rsa
+
+Q29-	ssh-copy-id mostafaroshdy1@fedora
+
+Q30-	Edit /etc/ssh/sshd_config and set PermitRootLogin no.and then run
+	systemctl restart sshd.service ## to reload the config file
+	
+Q31	sudo nano /etc/logrotate.conf
+	and uncomment compress
