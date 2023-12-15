@@ -1,0 +1,67 @@
+Q1-	sudo useradd user1
+	sudo useradd user2
+	sudo useradd user3
+	sudo useradd user4
+	sudo useradd user5
+	sudo useradd user6
+	sudo useradd user7
+	sudo passwd user1
+	sudo passwd user2
+	sudo passwd user3
+	sudo passwd user4
+	sudo passwd user5
+	sudo passwd user6
+	sudo passwd user7
+	
+Q2-	sudo groupadd sales -g 10000
+	sudo groupadd hr -g 10001
+	sudo groupadd web -g 10002
+	
+Setting GID manually allows you to maintain consistency across systems, ensuring that the GID matches your requirements. and it also make debugging easier.
+
+Q3-	sudo usermod -aG sales user1 user2
+	sudo usermod -aG hr user3 user4
+	sudo usermod -aG web user5 user6
+	sudo usermod -aG sales,hr,web user7
+
+Q4-	we can verify the group by running this command for each user
+	"id <user#>"
+	or by checking /etc/group file
+	cat /etc/group
+	
+Q5-	sudo mkdir /depts
+	sudo mdir /depts/hr
+	sudo mdir /depts/web
+	sudo mdir /depts/sales
+	
+Q6-	sudo chgrp sales /depts/sales
+	sudo chgrp hr /depts/hr
+	sudo chgrp web /depts/web
+	
+Q7-	sudo chmod 755 /depts
+	sudo chmod 770 /depts/*
+	
+Q8-	sudo chmod g+s /depts/*
+	or
+	sudo chmod 2770 /depts/*
+	
+Q9-	su - user2
+	touch /depts/sales/user2.txt	## Succeeds
+	touch /depts/hr/ user2.txt	## fails (no write permission)
+	touch /depts/web/ user2.txt	## Fails (no write permission)
+	
+Q10-	sudo visudo
+	user3 ALL=(ALL) /bin/mount, /bin/umount
+	user4 ALL=(ALL) /bin/mount, /bin/umount
+	user5 ALL=(ALL) /sbin/fdisk
+	
+Q11-	su - user3
+	umount /boot
+	
+Q12-	su - user4
+	mount /boot
+	fdisk -l
+
+Q13-	setfacl -m g:sales:rx dir1
+
+
